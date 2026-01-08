@@ -374,7 +374,7 @@ export class AMQPBroker extends Broker {
     const taskRegister = <TaskRegister>{
       taskMeta,
       processFunc,
-      queueName: `${taskMeta.name}_${this.options.queueSuffix}`,
+      queueName: this.options.queueSuffix ? `${taskMeta.name}_${this.options.queueSuffix}` : taskMeta.name,
     };
     this.taskRegisterMap[taskMeta.name] = taskRegister;
 
